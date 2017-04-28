@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <artifactId>sensor-validators</artifactId>
+        <groupId>com.github.aonagarcia</groupId>
+        <version>1.0-SNAPSHOT</version>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+
+    <artifactId>commons</artifactId>
+
+    <dependencies>
+            <dependency>
+                <groupId>org.openmarkov</groupId>
+                <artifactId>openmarkov</artifactId>
+                <scope>system</scope>
+                <version>0.1.1</version>
+                <systemPath>${basedir}/lib/org.openmarkov.full-0.1.1.jar</systemPath>
+            </dependency>
+            <dependency>
+                <groupId>org.xiang</groupId>
+                <artifactId>ww4</artifactId>
+                <scope>system</scope>
+                <version>1.0</version>
+                <systemPath>${basedir}/lib/ww4.jar</systemPath>
+            </dependency>
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-install-plugin</artifactId>
+                <version>2.5.2</version>
+                <executions>
+                    <execution>
+                        <phase>initialize</phase>
+                        <goals>
+                            <goal>install-file</goal>
+                        </goals>
+                        <configuration>
+                            <file>lib/org.openmarkov.full-0.1.1.jar</file>
+                            <groupId>org.openmarkov</groupId>
+                            <artifactId>openmarkov</artifactId>
+                            <version>0.1.1</version>
+                            <packaging>jar</packaging>
+                        </configuration>
+                    </execution>
+                    <execution>
+                        <phase>initialize</phase>
+                        <goals>
+                            <goal>install-file</goal>
+                        </goals>
+                        <configuration>
+                            <file>lib/ww4.jar</file>
+                            <groupId>org.xiang</groupId>
+                            <artifactId>ww4</artifactId>
+                            <version>1.0</version>
+                            <packaging>jar</packaging>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+
+    </build>
+
+</project>
